@@ -11,7 +11,7 @@ require_once 'include/navbar.php';
   <table class="table">
     <thead>
       <tr>
-          <th>Titre</th>
+          <th><a ng-click="triParExpediteur()">Titre</a></th>
           <th>Date</th>
           <th>Duree</th>
           <th>Etat</th>

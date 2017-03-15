@@ -5,7 +5,8 @@ include 'connexion.php';
 //afficher formation
 function afficherformation(){
     $db = new DBConnection();
-    $sth=$db->prepare("SELECT * from formation join prestataire on formation.idPrestataire=prestataire.idPrestataire ");
+    $sth=$db->prepare("SELECT * from formation join prestataire on formation.idPrestataire=prestataire.idPrestataire where formation.credit<:credit");
+    $sth->BindValue(':credit',$_SESSION['credit']);
     $sth->execute();
     $result= $sth->fetchAll(PDO::FETCH_OBJ);
     return $result;
